@@ -1,0 +1,1801 @@
+
+================================================================================
+-- SCHEMA: FIREEVENT (324 tables)
+================================================================================
+
+CREATE TABLE IF NOT EXISTS medallion.fire_nfris_bronze.fireevent_actiontaken
+(
+    `tenant_id` INT,
+    `IncidentID` INT,
+    `CreatedOn` TIMESTAMP,
+    `CreatedBy` STRING,
+    `ModifiedOn` TIMESTAMP,
+    `ModifiedBy` STRING,
+    `DeletedStatus` BOOLEAN,
+    `FormID` STRING,
+    `_ingest_date` DATE,
+    `_op` STRING,
+    `batch_id` BIGINT
+)
+USING DELTA
+CLUSTER BY (tenant_id, IncidentID)
+TBLPROPERTIES (
+  'delta.enableDeletionVectors'           = 'true',
+  'delta.enableChangeDataFeed'            = 'true',
+  'delta.targetFileSize'                  = '134217728',
+  'delta.tuneFileSizesForRewrites'        = 'true',
+  'delta.autoOptimize.optimizeWrite'      = 'true',
+  'delta.autoOptimize.autoCompact'        = 'false',
+  'delta.logRetentionDuration'            = 'interval 7 days',
+  'delta.deletedFileRetentionDuration'    = 'interval 3 days'
+);
+
+CREATE TABLE IF NOT EXISTS medallion.fire_nfris_bronze.fireevent_actiontakenother
+(
+    `tenant_id` INT,
+    `ActionTakenOtherID` INT,
+    `IncidentID` INT,
+    `CreatedOn` TIMESTAMP,
+    `CreatedBy` STRING,
+    `ModifiedOn` TIMESTAMP,
+    `ModifiedBy` STRING,
+    `DeletedStatus` BOOLEAN,
+    `GlobalIdentifier` STRING,
+    `FormID` STRING,
+    `_ingest_date` DATE,
+    `_op` STRING,
+    `batch_id` BIGINT
+)
+USING DELTA
+CLUSTER BY (tenant_id, ActionTakenOtherID)
+TBLPROPERTIES (
+  'delta.enableDeletionVectors'           = 'true',
+  'delta.enableChangeDataFeed'            = 'true',
+  'delta.targetFileSize'                  = '134217728',
+  'delta.tuneFileSizesForRewrites'        = 'true',
+  'delta.autoOptimize.optimizeWrite'      = 'true',
+  'delta.autoOptimize.autoCompact'        = 'false',
+  'delta.logRetentionDuration'            = 'interval 7 days',
+  'delta.deletedFileRetentionDuration'    = 'interval 3 days'
+);
+
+CREATE TABLE IF NOT EXISTS medallion.fire_nfris_bronze.fireevent_actiontakenotheractiontakenmodvalue
+(
+    `tenant_id` INT,
+    `ActionTakenOtherID` INT,
+    `ActionTaken` STRING,
+    `PlusOneCode` STRING,
+    `GlobalIdentifier` STRING,
+    `DeletedStatus` BOOLEAN,
+    `CreatedOn` TIMESTAMP,
+    `ModifiedOn` TIMESTAMP,
+    `CreatedBy` STRING,
+    `ModifiedBy` STRING,
+    `NotValue` STRING,
+    `_ingest_date` DATE,
+    `_op` STRING,
+    `batch_id` BIGINT
+)
+USING DELTA
+CLUSTER BY (tenant_id, ActionTakenOtherID)
+TBLPROPERTIES (
+  'delta.enableDeletionVectors'           = 'true',
+  'delta.enableChangeDataFeed'            = 'true',
+  'delta.targetFileSize'                  = '134217728',
+  'delta.tuneFileSizesForRewrites'        = 'true',
+  'delta.autoOptimize.optimizeWrite'      = 'true',
+  'delta.autoOptimize.autoCompact'        = 'false',
+  'delta.logRetentionDuration'            = 'interval 7 days',
+  'delta.deletedFileRetentionDuration'    = 'interval 3 days'
+);
+
+CREATE TABLE IF NOT EXISTS medallion.fire_nfris_bronze.fireevent_actiontakenprimaryactiontakenmodvalue
+(
+    `tenant_id` INT,
+    `IncidentID` INT,
+    `PrimaryActionTaken` STRING,
+    `PlusOneCode` STRING,
+    `GlobalIdentifier` STRING,
+    `DeletedStatus` BOOLEAN,
+    `CreatedOn` TIMESTAMP,
+    `ModifiedOn` TIMESTAMP,
+    `CreatedBy` STRING,
+    `ModifiedBy` STRING,
+    `NotValue` STRING,
+    `_ingest_date` DATE,
+    `_op` STRING,
+    `batch_id` BIGINT
+)
+USING DELTA
+CLUSTER BY (tenant_id, IncidentID)
+TBLPROPERTIES (
+  'delta.enableDeletionVectors'           = 'true',
+  'delta.enableChangeDataFeed'            = 'true',
+  'delta.targetFileSize'                  = '134217728',
+  'delta.tuneFileSizesForRewrites'        = 'true',
+  'delta.autoOptimize.optimizeWrite'      = 'true',
+  'delta.autoOptimize.autoCompact'        = 'false',
+  'delta.logRetentionDuration'            = 'interval 7 days',
+  'delta.deletedFileRetentionDuration'    = 'interval 3 days'
+);
+
+CREATE TABLE IF NOT EXISTS medallion.fire_nfris_bronze.fireevent_apparatus
+(
+    `tenant_id` INT,
+    `ApparatusID` INT,
+    `IncidentID` INT,
+    `VehicleID` STRING,
+    `Number` STRING,
+    `Sent` STRING,
+    `NumberOfPeople` INT,
+    `SortOrder` INT,
+    `CreatedOn` TIMESTAMP,
+    `CreatedBy` STRING,
+    `ModifiedOn` TIMESTAMP,
+    `ModifiedBy` STRING,
+    `DeletedStatus` BOOLEAN,
+    `GlobalIdentifier` STRING,
+    `FormID` STRING,
+    `MutualAidVehicle` BOOLEAN,
+    `ApparatusDispatchLocation` STRING,
+    `ApparatusNarrative` STRING,
+    `EditLockAcquiredBy` STRING,
+    `EditlockAcquiredOn` TIMESTAMP,
+    `_ingest_date` DATE,
+    `_op` STRING,
+    `batch_id` BIGINT
+)
+USING DELTA
+CLUSTER BY (tenant_id, ApparatusID)
+TBLPROPERTIES (
+  'delta.enableDeletionVectors'           = 'true',
+  'delta.enableChangeDataFeed'            = 'true',
+  'delta.targetFileSize'                  = '134217728',
+  'delta.tuneFileSizesForRewrites'        = 'true',
+  'delta.autoOptimize.optimizeWrite'      = 'true',
+  'delta.autoOptimize.autoCompact'        = 'false',
+  'delta.logRetentionDuration'            = 'interval 7 days',
+  'delta.deletedFileRetentionDuration'    = 'interval 3 days'
+);
+
+CREATE TABLE IF NOT EXISTS medallion.fire_nfris_bronze.fireevent_apparatusaction
+(
+    `tenant_id` INT,
+    `ApparatusID` INT,
+    `CreatedOn` TIMESTAMP,
+    `CreatedBy` STRING,
+    `ModifiedOn` TIMESTAMP,
+    `ModifiedBy` STRING,
+    `DeletedStatus` BOOLEAN,
+    `FormID` STRING,
+    `_ingest_date` DATE,
+    `_op` STRING,
+    `batch_id` BIGINT
+)
+USING DELTA
+CLUSTER BY (tenant_id, ApparatusID)
+TBLPROPERTIES (
+  'delta.enableDeletionVectors'           = 'true',
+  'delta.enableChangeDataFeed'            = 'true',
+  'delta.targetFileSize'                  = '134217728',
+  'delta.tuneFileSizesForRewrites'        = 'true',
+  'delta.autoOptimize.optimizeWrite'      = 'true',
+  'delta.autoOptimize.autoCompact'        = 'false',
+  'delta.logRetentionDuration'            = 'interval 7 days',
+  'delta.deletedFileRetentionDuration'    = 'interval 3 days'
+);
+
+CREATE TABLE IF NOT EXISTS medallion.fire_nfris_bronze.fireevent_apparatusactionother
+(
+    `tenant_id` INT,
+    `ApparatusActionID` INT,
+    `ApparatusID` INT,
+    `CreatedOn` TIMESTAMP,
+    `CreatedBy` STRING,
+    `ModifiedOn` TIMESTAMP,
+    `ModifiedBy` STRING,
+    `DeletedStatus` BOOLEAN,
+    `GlobalIdentifier` STRING,
+    `FormID` STRING,
+    `_ingest_date` DATE,
+    `_op` STRING,
+    `batch_id` BIGINT
+)
+USING DELTA
+CLUSTER BY (tenant_id, ApparatusActionID)
+TBLPROPERTIES (
+  'delta.enableDeletionVectors'           = 'true',
+  'delta.enableChangeDataFeed'            = 'true',
+  'delta.targetFileSize'                  = '134217728',
+  'delta.tuneFileSizesForRewrites'        = 'true',
+  'delta.autoOptimize.optimizeWrite'      = 'true',
+  'delta.autoOptimize.autoCompact'        = 'false',
+  'delta.logRetentionDuration'            = 'interval 7 days',
+  'delta.deletedFileRetentionDuration'    = 'interval 3 days'
+);
+
+CREATE TABLE IF NOT EXISTS medallion.fire_nfris_bronze.fireevent_apparatusactionotherapparatusactionmodvalue
+(
+    `tenant_id` INT,
+    `ApparatusActionID` INT,
+    `ApparatusAction` STRING,
+    `PlusOneCode` STRING,
+    `GlobalIdentifier` STRING,
+    `DeletedStatus` BOOLEAN,
+    `CreatedOn` TIMESTAMP,
+    `ModifiedOn` TIMESTAMP,
+    `CreatedBy` STRING,
+    `ModifiedBy` STRING,
+    `_ingest_date` DATE,
+    `_op` STRING,
+    `batch_id` BIGINT
+)
+USING DELTA
+CLUSTER BY (tenant_id, ApparatusActionID)
+TBLPROPERTIES (
+  'delta.enableDeletionVectors'           = 'true',
+  'delta.enableChangeDataFeed'            = 'true',
+  'delta.targetFileSize'                  = '134217728',
+  'delta.tuneFileSizesForRewrites'        = 'true',
+  'delta.autoOptimize.optimizeWrite'      = 'true',
+  'delta.autoOptimize.autoCompact'        = 'false',
+  'delta.logRetentionDuration'            = 'interval 7 days',
+  'delta.deletedFileRetentionDuration'    = 'interval 3 days'
+);
+
+CREATE TABLE IF NOT EXISTS medallion.fire_nfris_bronze.fireevent_apparatusactionprimaryapparatusactionmodvalue
+(
+    `tenant_id` INT,
+    `ApparatusID` INT,
+    `PrimaryApparatusAction` STRING,
+    `PlusOneCode` STRING,
+    `GlobalIdentifier` STRING,
+    `DeletedStatus` BOOLEAN,
+    `CreatedOn` TIMESTAMP,
+    `ModifiedOn` TIMESTAMP,
+    `CreatedBy` STRING,
+    `ModifiedBy` STRING,
+    `_ingest_date` DATE,
+    `_op` STRING,
+    `batch_id` BIGINT
+)
+USING DELTA
+CLUSTER BY (tenant_id, ApparatusID)
+TBLPROPERTIES (
+  'delta.enableDeletionVectors'           = 'true',
+  'delta.enableChangeDataFeed'            = 'true',
+  'delta.targetFileSize'                  = '134217728',
+  'delta.tuneFileSizesForRewrites'        = 'true',
+  'delta.autoOptimize.optimizeWrite'      = 'true',
+  'delta.autoOptimize.autoCompact'        = 'false',
+  'delta.logRetentionDuration'            = 'interval 7 days',
+  'delta.deletedFileRetentionDuration'    = 'interval 3 days'
+);
+
+CREATE TABLE IF NOT EXISTS medallion.fire_nfris_bronze.fireevent_apparatusapparatususemodvalue
+(
+    `tenant_id` INT,
+    `ApparatusID` INT,
+    `ApparatusUse` STRING,
+    `PlusOneCode` STRING,
+    `GlobalIdentifier` STRING,
+    `DeletedStatus` BOOLEAN,
+    `CreatedOn` TIMESTAMP,
+    `ModifiedOn` TIMESTAMP,
+    `CreatedBy` STRING,
+    `ModifiedBy` STRING,
+    `_ingest_date` DATE,
+    `_op` STRING,
+    `batch_id` BIGINT
+)
+USING DELTA
+CLUSTER BY (tenant_id, ApparatusID)
+TBLPROPERTIES (
+  'delta.enableDeletionVectors'           = 'true',
+  'delta.enableChangeDataFeed'            = 'true',
+  'delta.targetFileSize'                  = '134217728',
+  'delta.tuneFileSizesForRewrites'        = 'true',
+  'delta.autoOptimize.optimizeWrite'      = 'true',
+  'delta.autoOptimize.autoCompact'        = 'false',
+  'delta.logRetentionDuration'            = 'interval 7 days',
+  'delta.deletedFileRetentionDuration'    = 'interval 3 days'
+);
+
+CREATE TABLE IF NOT EXISTS medallion.fire_nfris_bronze.fireevent_apparatuspersonnel
+(
+    `tenant_id` INT,
+    `ApparatusPersonnelID` INT,
+    `ApparatusID` INT,
+    `PerformerID` STRING,
+    `LicenseNumber` STRING,
+    `Attended` INT,
+    `FirstName` STRING,
+    `LastName` STRING,
+    `Rank` STRING,
+    `Rate` DECIMAL(12,4),
+    `PayRateID` INT,
+    `PayRateDescription` STRING,
+    `TimeSpent` STRING,
+    `TimeIn` TIMESTAMP,
+    `TimeOut` TIMESTAMP,
+    `CreatedOn` TIMESTAMP,
+    `CreatedBy` STRING,
+    `ModifiedOn` TIMESTAMP,
+    `ModifiedBy` STRING,
+    `DeletedStatus` BOOLEAN,
+    `GlobalIdentifier` STRING,
+    `FormID` STRING,
+    `IsAttended` STRING,
+    `_ingest_date` DATE,
+    `_op` STRING,
+    `batch_id` BIGINT
+)
+USING DELTA
+CLUSTER BY (tenant_id, ApparatusPersonnelID)
+TBLPROPERTIES (
+  'delta.enableDeletionVectors'           = 'true',
+  'delta.enableChangeDataFeed'            = 'true',
+  'delta.targetFileSize'                  = '134217728',
+  'delta.tuneFileSizesForRewrites'        = 'true',
+  'delta.autoOptimize.optimizeWrite'      = 'true',
+  'delta.autoOptimize.autoCompact'        = 'false',
+  'delta.logRetentionDuration'            = 'interval 7 days',
+  'delta.deletedFileRetentionDuration'    = 'interval 3 days'
+);
+
+CREATE TABLE IF NOT EXISTS medallion.fire_nfris_bronze.fireevent_apparatuspersonnelaction
+(
+    `tenant_id` INT,
+    `ApparatusPersonnelID` INT,
+    `SortOrder` INT,
+    `CreatedOn` TIMESTAMP,
+    `CreatedBy` STRING,
+    `ModifiedOn` TIMESTAMP,
+    `ModifiedBy` STRING,
+    `DeletedStatus` BOOLEAN,
+    `FormID` STRING,
+    `_ingest_date` DATE,
+    `_op` STRING,
+    `batch_id` BIGINT
+)
+USING DELTA
+CLUSTER BY (tenant_id, ApparatusPersonnelID)
+TBLPROPERTIES (
+  'delta.enableDeletionVectors'           = 'true',
+  'delta.enableChangeDataFeed'            = 'true',
+  'delta.targetFileSize'                  = '134217728',
+  'delta.tuneFileSizesForRewrites'        = 'true',
+  'delta.autoOptimize.optimizeWrite'      = 'true',
+  'delta.autoOptimize.autoCompact'        = 'false',
+  'delta.logRetentionDuration'            = 'interval 7 days',
+  'delta.deletedFileRetentionDuration'    = 'interval 3 days'
+);
+
+CREATE TABLE IF NOT EXISTS medallion.fire_nfris_bronze.fireevent_apparatuspersonnelactionother
+(
+    `tenant_id` INT,
+    `ApparatusPersonnelActionID` INT,
+    `ApparatusPersonnelID` INT,
+    `CreatedOn` TIMESTAMP,
+    `CreatedBy` STRING,
+    `ModifiedOn` TIMESTAMP,
+    `ModifiedBy` STRING,
+    `DeletedStatus` BOOLEAN,
+    `GlobalIdentifier` STRING,
+    `FormID` STRING,
+    `_ingest_date` DATE,
+    `_op` STRING,
+    `batch_id` BIGINT
+)
+USING DELTA
+CLUSTER BY (tenant_id, ApparatusPersonnelActionID)
+TBLPROPERTIES (
+  'delta.enableDeletionVectors'           = 'true',
+  'delta.enableChangeDataFeed'            = 'true',
+  'delta.targetFileSize'                  = '134217728',
+  'delta.tuneFileSizesForRewrites'        = 'true',
+  'delta.autoOptimize.optimizeWrite'      = 'true',
+  'delta.autoOptimize.autoCompact'        = 'false',
+  'delta.logRetentionDuration'            = 'interval 7 days',
+  'delta.deletedFileRetentionDuration'    = 'interval 3 days'
+);
+
+CREATE TABLE IF NOT EXISTS medallion.fire_nfris_bronze.fireevent_apparatuspersonnelactionotheractionmodvalue
+(
+    `tenant_id` INT,
+    `ApparatusPersonnelActionID` INT,
+    `Action` STRING,
+    `PlusOneCode` STRING,
+    `GlobalIdentifier` STRING,
+    `DeletedStatus` BOOLEAN,
+    `CreatedOn` TIMESTAMP,
+    `ModifiedOn` TIMESTAMP,
+    `CreatedBy` STRING,
+    `ModifiedBy` STRING,
+    `_ingest_date` DATE,
+    `_op` STRING,
+    `batch_id` BIGINT
+)
+USING DELTA
+CLUSTER BY (tenant_id, ApparatusPersonnelActionID)
+TBLPROPERTIES (
+  'delta.enableDeletionVectors'           = 'true',
+  'delta.enableChangeDataFeed'            = 'true',
+  'delta.targetFileSize'                  = '134217728',
+  'delta.tuneFileSizesForRewrites'        = 'true',
+  'delta.autoOptimize.optimizeWrite'      = 'true',
+  'delta.autoOptimize.autoCompact'        = 'false',
+  'delta.logRetentionDuration'            = 'interval 7 days',
+  'delta.deletedFileRetentionDuration'    = 'interval 3 days'
+);
+
+CREATE TABLE IF NOT EXISTS medallion.fire_nfris_bronze.fireevent_apparatuspersonnelactionprimaryactionmodvalue
+(
+    `tenant_id` INT,
+    `ApparatusPersonnelID` INT,
+    `PrimaryAction` STRING,
+    `PlusOneCode` STRING,
+    `GlobalIdentifier` STRING,
+    `DeletedStatus` BOOLEAN,
+    `CreatedOn` TIMESTAMP,
+    `ModifiedOn` TIMESTAMP,
+    `CreatedBy` STRING,
+    `ModifiedBy` STRING,
+    `_ingest_date` DATE,
+    `_op` STRING,
+    `batch_id` BIGINT
+)
+USING DELTA
+CLUSTER BY (tenant_id, ApparatusPersonnelID)
+TBLPROPERTIES (
+  'delta.enableDeletionVectors'           = 'true',
+  'delta.enableChangeDataFeed'            = 'true',
+  'delta.targetFileSize'                  = '134217728',
+  'delta.tuneFileSizesForRewrites'        = 'true',
+  'delta.autoOptimize.optimizeWrite'      = 'true',
+  'delta.autoOptimize.autoCompact'        = 'false',
+  'delta.logRetentionDuration'            = 'interval 7 days',
+  'delta.deletedFileRetentionDuration'    = 'interval 3 days'
+);
+
+CREATE TABLE IF NOT EXISTS medallion.fire_nfris_bronze.fireevent_apparatuspersonnellevelmodvalue
+(
+    `tenant_id` INT,
+    `ApparatusPersonnelID` INT,
+    `Level` STRING,
+    `PlusOneCode` STRING,
+    `GlobalIdentifier` STRING,
+    `DeletedStatus` BOOLEAN,
+    `CreatedOn` TIMESTAMP,
+    `ModifiedOn` TIMESTAMP,
+    `CreatedBy` STRING,
+    `ModifiedBy` STRING,
+    `_ingest_date` DATE,
+    `_op` STRING,
+    `batch_id` BIGINT
+)
+USING DELTA
+CLUSTER BY (tenant_id, ApparatusPersonnelID)
+TBLPROPERTIES (
+  'delta.enableDeletionVectors'           = 'true',
+  'delta.enableChangeDataFeed'            = 'true',
+  'delta.targetFileSize'                  = '134217728',
+  'delta.tuneFileSizesForRewrites'        = 'true',
+  'delta.autoOptimize.optimizeWrite'      = 'true',
+  'delta.autoOptimize.autoCompact'        = 'false',
+  'delta.logRetentionDuration'            = 'interval 7 days',
+  'delta.deletedFileRetentionDuration'    = 'interval 3 days'
+);
+
+CREATE TABLE IF NOT EXISTS medallion.fire_nfris_bronze.fireevent_apparatuspersonnelrolemodvalue
+(
+    `tenant_id` INT,
+    `ApparatusPersonnelID` INT,
+    `Role` STRING,
+    `PlusOneCode` STRING,
+    `GlobalIdentifier` STRING,
+    `DeletedStatus` BOOLEAN,
+    `CreatedOn` TIMESTAMP,
+    `ModifiedOn` TIMESTAMP,
+    `CreatedBy` STRING,
+    `ModifiedBy` STRING,
+    `_ingest_date` DATE,
+    `_op` STRING,
+    `batch_id` BIGINT
+)
+USING DELTA
+CLUSTER BY (tenant_id, ApparatusPersonnelID)
+TBLPROPERTIES (
+  'delta.enableDeletionVectors'           = 'true',
+  'delta.enableChangeDataFeed'            = 'true',
+  'delta.targetFileSize'                  = '134217728',
+  'delta.tuneFileSizesForRewrites'        = 'true',
+  'delta.autoOptimize.optimizeWrite'      = 'true',
+  'delta.autoOptimize.autoCompact'        = 'false',
+  'delta.logRetentionDuration'            = 'interval 7 days',
+  'delta.deletedFileRetentionDuration'    = 'interval 3 days'
+);
+
+CREATE TABLE IF NOT EXISTS medallion.fire_nfris_bronze.fireevent_apparatusresponsemodemodvalue
+(
+    `tenant_id` INT,
+    `ApparatusID` INT,
+    `ResponseMode` STRING,
+    `PlusOneCode` STRING,
+    `GlobalIdentifier` STRING,
+    `DeletedStatus` BOOLEAN,
+    `CreatedOn` TIMESTAMP,
+    `ModifiedOn` TIMESTAMP,
+    `CreatedBy` STRING,
+    `ModifiedBy` STRING,
+    `_ingest_date` DATE,
+    `_op` STRING,
+    `batch_id` BIGINT
+)
+USING DELTA
+CLUSTER BY (tenant_id, ApparatusID)
+TBLPROPERTIES (
+  'delta.enableDeletionVectors'           = 'true',
+  'delta.enableChangeDataFeed'            = 'true',
+  'delta.targetFileSize'                  = '134217728',
+  'delta.tuneFileSizesForRewrites'        = 'true',
+  'delta.autoOptimize.optimizeWrite'      = 'true',
+  'delta.autoOptimize.autoCompact'        = 'false',
+  'delta.logRetentionDuration'            = 'interval 7 days',
+  'delta.deletedFileRetentionDuration'    = 'interval 3 days'
+);
+
+CREATE TABLE IF NOT EXISTS medallion.fire_nfris_bronze.fireevent_apparatustime
+(
+    `tenant_id` INT,
+    `ApparatusID` INT,
+    `Arrival` TIMESTAMP,
+    `Clear` TIMESTAMP,
+    `Dispatch` TIMESTAMP,
+    `Enroute` TIMESTAMP,
+    `InService` TIMESTAMP,
+    `CreatedOn` TIMESTAMP,
+    `CreatedBy` STRING,
+    `ModifiedOn` TIMESTAMP,
+    `ModifiedBy` STRING,
+    `DeletedStatus` BOOLEAN,
+    `Staging` TIMESTAMP,
+    `LeaveScene` TIMESTAMP,
+    `ArrivalAtHospital` TIMESTAMP,
+    `InQuarters` TIMESTAMP,
+    `_ingest_date` DATE,
+    `_op` STRING,
+    `batch_id` BIGINT
+)
+USING DELTA
+CLUSTER BY (tenant_id, ApparatusID)
+TBLPROPERTIES (
+  'delta.enableDeletionVectors'           = 'true',
+  'delta.enableChangeDataFeed'            = 'true',
+  'delta.targetFileSize'                  = '134217728',
+  'delta.tuneFileSizesForRewrites'        = 'true',
+  'delta.autoOptimize.optimizeWrite'      = 'true',
+  'delta.autoOptimize.autoCompact'        = 'false',
+  'delta.logRetentionDuration'            = 'interval 7 days',
+  'delta.deletedFileRetentionDuration'    = 'interval 3 days'
+);
+
+CREATE TABLE IF NOT EXISTS medallion.fire_nfris_bronze.fireevent_apparatustypemodvalue
+(
+    `tenant_id` INT,
+    `ApparatusID` INT,
+    `Type` STRING,
+    `NotValue` STRING,
+    `PlusOneCode` STRING,
+    `GlobalIdentifier` STRING,
+    `DeletedStatus` BOOLEAN,
+    `CreatedOn` TIMESTAMP,
+    `ModifiedOn` TIMESTAMP,
+    `CreatedBy` STRING,
+    `ModifiedBy` STRING,
+    `_ingest_date` DATE,
+    `_op` STRING,
+    `batch_id` BIGINT
+)
+USING DELTA
+CLUSTER BY (tenant_id, ApparatusID)
+TBLPROPERTIES (
+  'delta.enableDeletionVectors'           = 'true',
+  'delta.enableChangeDataFeed'            = 'true',
+  'delta.targetFileSize'                  = '134217728',
+  'delta.tuneFileSizesForRewrites'        = 'true',
+  'delta.autoOptimize.optimizeWrite'      = 'true',
+  'delta.autoOptimize.autoCompact'        = 'false',
+  'delta.logRetentionDuration'            = 'interval 7 days',
+  'delta.deletedFileRetentionDuration'    = 'interval 3 days'
+);
+
+CREATE TABLE IF NOT EXISTS medallion.fire_nfris_bronze.fireevent_arson
+(
+    `tenant_id` INT,
+    `IncidentID` INT,
+    `Remarks` STRING,
+    `CreatedOn` TIMESTAMP,
+    `ModifiedOn` TIMESTAMP,
+    `CreatedBy` STRING,
+    `ModifiedBy` STRING,
+    `DeletedStatus` BOOLEAN,
+    `_ingest_date` DATE,
+    `_op` STRING,
+    `batch_id` BIGINT
+)
+USING DELTA
+CLUSTER BY (tenant_id, IncidentID)
+TBLPROPERTIES (
+  'delta.enableDeletionVectors'           = 'true',
+  'delta.enableChangeDataFeed'            = 'true',
+  'delta.targetFileSize'                  = '134217728',
+  'delta.tuneFileSizesForRewrites'        = 'true',
+  'delta.autoOptimize.optimizeWrite'      = 'true',
+  'delta.autoOptimize.autoCompact'        = 'false',
+  'delta.logRetentionDuration'            = 'interval 7 days',
+  'delta.deletedFileRetentionDuration'    = 'interval 3 days'
+);
+
+CREATE TABLE IF NOT EXISTS medallion.fire_nfris_bronze.fireevent_arsonagencyreferredto
+(
+    `tenant_id` INT,
+    `IncidentID` INT,
+    `CaseNumber` STRING,
+    `ORI` STRING,
+    `FederalIndentification` STRING,
+    `FDID` STRING,
+    `PhoneNumber` STRING,
+    `CreatedOn` TIMESTAMP,
+    `ModifiedOn` TIMESTAMP,
+    `CreatedBy` STRING,
+    `ModifiedBy` STRING,
+    `DeletedStatus` BOOLEAN,
+    `_ingest_date` DATE,
+    `_op` STRING,
+    `batch_id` BIGINT
+)
+USING DELTA
+CLUSTER BY (tenant_id, IncidentID)
+TBLPROPERTIES (
+  'delta.enableDeletionVectors'           = 'true',
+  'delta.enableChangeDataFeed'            = 'true',
+  'delta.targetFileSize'                  = '134217728',
+  'delta.tuneFileSizesForRewrites'        = 'true',
+  'delta.autoOptimize.optimizeWrite'      = 'true',
+  'delta.autoOptimize.autoCompact'        = 'false',
+  'delta.logRetentionDuration'            = 'interval 7 days',
+  'delta.deletedFileRetentionDuration'    = 'interval 3 days'
+);
+
+CREATE TABLE IF NOT EXISTS medallion.fire_nfris_bronze.fireevent_arsonagencyreferredtoaddress
+(
+    `tenant_id` INT,
+    `IncidentID` INT,
+    `StreetNumber` STRING,
+    `StreetName` STRING,
+    `POBox` STRING,
+    `ApartmentNumber` STRING,
+    `CityName` STRING,
+    `CityGNIS` STRING,
+    `CountyName` STRING,
+    `CountyGNIS` STRING,
+    `StateName` STRING,
+    `StateGNIS` STRING,
+    `CountryName` STRING,
+    `CountryCode` STRING,
+    `ZipCode` STRING,
+    `CrossStreet` STRING,
+    `CreatedOn` TIMESTAMP,
+    `ModifiedOn` TIMESTAMP,
+    `CreatedBy` STRING,
+    `ModifiedBy` STRING,
+    `DeletedStatus` BOOLEAN,
+    `FavoritePostalCode` INT,
+    `_ingest_date` DATE,
+    `_op` STRING,
+    `batch_id` BIGINT
+)
+USING DELTA
+CLUSTER BY (tenant_id, IncidentID)
+TBLPROPERTIES (
+  'delta.enableDeletionVectors'           = 'true',
+  'delta.enableChangeDataFeed'            = 'true',
+  'delta.targetFileSize'                  = '134217728',
+  'delta.tuneFileSizesForRewrites'        = 'true',
+  'delta.autoOptimize.optimizeWrite'      = 'true',
+  'delta.autoOptimize.autoCompact'        = 'false',
+  'delta.logRetentionDuration'            = 'interval 7 days',
+  'delta.deletedFileRetentionDuration'    = 'interval 3 days'
+);
+
+CREATE TABLE IF NOT EXISTS medallion.fire_nfris_bronze.fireevent_arsonagencyreferredtoaddressstreetprefixmodvalue
+(
+    `tenant_id` INT,
+    `IncidentID` INT,
+    `StreetPrefix` STRING,
+    `PlusOneCode` STRING,
+    `GlobalIdentifier` STRING,
+    `DeletedStatus` BOOLEAN,
+    `CreatedOn` TIMESTAMP,
+    `ModifiedOn` TIMESTAMP,
+    `CreatedBy` STRING,
+    `ModifiedBy` STRING,
+    `_ingest_date` DATE,
+    `_op` STRING,
+    `batch_id` BIGINT
+)
+USING DELTA
+CLUSTER BY (tenant_id, IncidentID)
+TBLPROPERTIES (
+  'delta.enableDeletionVectors'           = 'true',
+  'delta.enableChangeDataFeed'            = 'true',
+  'delta.targetFileSize'                  = '134217728',
+  'delta.tuneFileSizesForRewrites'        = 'true',
+  'delta.autoOptimize.optimizeWrite'      = 'true',
+  'delta.autoOptimize.autoCompact'        = 'false',
+  'delta.logRetentionDuration'            = 'interval 7 days',
+  'delta.deletedFileRetentionDuration'    = 'interval 3 days'
+);
+
+CREATE TABLE IF NOT EXISTS medallion.fire_nfris_bronze.fireevent_arsonagencyreferredtoaddressstreetsuffixmodvalue
+(
+    `tenant_id` INT,
+    `IncidentID` INT,
+    `StreetSuffix` STRING,
+    `PlusOneCode` STRING,
+    `GlobalIdentifier` STRING,
+    `DeletedStatus` BOOLEAN,
+    `CreatedOn` TIMESTAMP,
+    `ModifiedOn` TIMESTAMP,
+    `CreatedBy` STRING,
+    `ModifiedBy` STRING,
+    `_ingest_date` DATE,
+    `_op` STRING,
+    `batch_id` BIGINT
+)
+USING DELTA
+CLUSTER BY (tenant_id, IncidentID)
+TBLPROPERTIES (
+  'delta.enableDeletionVectors'           = 'true',
+  'delta.enableChangeDataFeed'            = 'true',
+  'delta.targetFileSize'                  = '134217728',
+  'delta.tuneFileSizesForRewrites'        = 'true',
+  'delta.autoOptimize.optimizeWrite'      = 'true',
+  'delta.autoOptimize.autoCompact'        = 'false',
+  'delta.logRetentionDuration'            = 'interval 7 days',
+  'delta.deletedFileRetentionDuration'    = 'interval 3 days'
+);
+
+CREATE TABLE IF NOT EXISTS medallion.fire_nfris_bronze.fireevent_arsonagencyreferredtoaddressstreettypemodvalue
+(
+    `tenant_id` INT,
+    `IncidentID` INT,
+    `StreetType` STRING,
+    `PlusOneCode` STRING,
+    `GlobalIdentifier` STRING,
+    `DeletedStatus` BOOLEAN,
+    `CreatedOn` TIMESTAMP,
+    `ModifiedOn` TIMESTAMP,
+    `CreatedBy` STRING,
+    `ModifiedBy` STRING,
+    `_ingest_date` DATE,
+    `_op` STRING,
+    `batch_id` BIGINT
+)
+USING DELTA
+CLUSTER BY (tenant_id, IncidentID)
+TBLPROPERTIES (
+  'delta.enableDeletionVectors'           = 'true',
+  'delta.enableChangeDataFeed'            = 'true',
+  'delta.targetFileSize'                  = '134217728',
+  'delta.tuneFileSizesForRewrites'        = 'true',
+  'delta.autoOptimize.optimizeWrite'      = 'true',
+  'delta.autoOptimize.autoCompact'        = 'false',
+  'delta.logRetentionDuration'            = 'interval 7 days',
+  'delta.deletedFileRetentionDuration'    = 'interval 3 days'
+);
+
+CREATE TABLE IF NOT EXISTS medallion.fire_nfris_bronze.fireevent_arsonagencyreferredtoagencynamemodvalue
+(
+    `tenant_id` INT,
+    `IncidentID` INT,
+    `AgencyName` STRING,
+    `NotValue` STRING,
+    `DeletedStatus` BOOLEAN,
+    `CreatedOn` TIMESTAMP,
+    `ModifiedOn` TIMESTAMP,
+
+
+... [*** WARNING: max output size exceeded, skipping output. ***] ...
+
+ING,
+    `batch_id` BIGINT
+)
+USING DELTA
+CLUSTER BY (tenant_id, IncidentID)
+TBLPROPERTIES (
+  'delta.enableDeletionVectors'           = 'true',
+  'delta.enableChangeDataFeed'            = 'true',
+  'delta.targetFileSize'                  = '134217728',
+  'delta.tuneFileSizesForRewrites'        = 'true',
+  'delta.autoOptimize.optimizeWrite'      = 'true',
+  'delta.autoOptimize.autoCompact'        = 'false',
+  'delta.logRetentionDuration'            = 'interval 7 days',
+  'delta.deletedFileRetentionDuration'    = 'interval 3 days'
+);
+
+CREATE TABLE IF NOT EXISTS medallion.fire_nfris_bronze.fireinvestigation_incidentactionplan
+(
+    `tenant_id` INT,
+    `IncidentID` INT,
+    `911VerifiableAddress` STRING,
+    `CountyJurisdictionID` STRING,
+    `CountyDispatchPhone` STRING,
+    `HighestEMSOnSceneID` STRING,
+    `EMSPresentUntilTime` TIMESTAMP,
+    `LocationMedicalKit` STRING,
+    `LocationAED` STRING,
+    `ClosestEmergencyRoom` STRING,
+    `911MedicalAssistanceAltPhone` STRING,
+    `OnSceneMeetingLocationID` STRING,
+    `OffSceneMeetingLocationID` STRING,
+    `SceneRadioChannel` STRING,
+    `ICCellNumber` STRING,
+    `ICAltPhoneNumber` STRING,
+    `PoliceAgencyJurisdictionID` STRING,
+    `FireAgencyJurisdiction` STRING,
+    `TrafficControlRequestedID` STRING,
+    `TrafficControlAgencyResponsible` STRING,
+    `SpecialEquipTechRequirementID` STRING,
+    `HazardsPresent` STRING,
+    `AirMonitoringTime` TIMESTAMP,
+    `MonitorTypeUsed` STRING,
+    `O2Results` INT,
+    `LELPercentResults` INT,
+    `H2SResults` INT,
+    `COResults` INT,
+    `HCNResults` INT,
+    `MinimumRespiratoryProtectionID` STRING,
+    `NeedsContinualMonitoringID` STRING,
+    `MinimumPPEID` STRING,
+    `Comments` STRING,
+    `DeletedStatus` BOOLEAN,
+    `CreatedOn` TIMESTAMP,
+    `ModifiedOn` TIMESTAMP,
+    `CreatedBy` STRING,
+    `ModifiedBy` STRING,
+    `FormID` STRING,
+    `_ingest_date` DATE,
+    `_op` STRING,
+    `batch_id` BIGINT
+)
+USING DELTA
+CLUSTER BY (tenant_id, IncidentID)
+TBLPROPERTIES (
+  'delta.enableDeletionVectors'           = 'true',
+  'delta.enableChangeDataFeed'            = 'true',
+  'delta.targetFileSize'                  = '134217728',
+  'delta.tuneFileSizesForRewrites'        = 'true',
+  'delta.autoOptimize.optimizeWrite'      = 'true',
+  'delta.autoOptimize.autoCompact'        = 'false',
+  'delta.logRetentionDuration'            = 'interval 7 days',
+  'delta.deletedFileRetentionDuration'    = 'interval 3 days'
+);
+
+CREATE TABLE IF NOT EXISTS medallion.fire_nfris_bronze.fireinvestigation_incidentother
+(
+    `tenant_id` INT,
+    `IncidentOtherID` INT,
+    `IncidentID` INT,
+    `IncidentOther` STRING,
+    `DeletedStatus` BOOLEAN,
+    `CreatedOn` TIMESTAMP,
+    `ModifiedOn` TIMESTAMP,
+    `GlobalIdentifier` STRING,
+    `CreatedBy` STRING,
+    `ModifiedBy` STRING,
+    `FormID` STRING,
+    `_ingest_date` DATE,
+    `_op` STRING,
+    `batch_id` BIGINT
+)
+USING DELTA
+CLUSTER BY (tenant_id, IncidentOtherID)
+TBLPROPERTIES (
+  'delta.enableDeletionVectors'           = 'true',
+  'delta.enableChangeDataFeed'            = 'true',
+  'delta.targetFileSize'                  = '134217728',
+  'delta.tuneFileSizesForRewrites'        = 'true',
+  'delta.autoOptimize.optimizeWrite'      = 'true',
+  'delta.autoOptimize.autoCompact'        = 'false',
+  'delta.logRetentionDuration'            = 'interval 7 days',
+  'delta.deletedFileRetentionDuration'    = 'interval 3 days'
+);
+
+CREATE TABLE IF NOT EXISTS medallion.fire_nfris_bronze.fireinvestigation_investigation
+(
+    `tenant_id` INT,
+    `IncidentID` INT,
+    `RequestedBy` STRING,
+    `NotifiedBy` STRING,
+    `ReceivedByID` STRING,
+    `LeadInvestigatorID` STRING,
+    `PeerReviewedByID` STRING,
+    `ArrivedAtScene` TIMESTAMP,
+    `AuthorityToEnterID` STRING,
+    `SceneSecuredID` STRING,
+    `SecuringAgency` STRING,
+    `SecurityManner` STRING,
+    `Comments` STRING,
+    `DeletedStatus` BOOLEAN,
+    `CreatedOn` TIMESTAMP,
+    `ModifiedOn` TIMESTAMP,
+    `CreatedBy` STRING,
+    `ModifiedBy` STRING,
+    `FormID` STRING,
+    `CaseBackground` STRING,
+    `CaseNarrative` STRING,
+    `CaseConclusion` STRING,
+    `_ingest_date` DATE,
+    `_op` STRING,
+    `batch_id` BIGINT
+)
+USING DELTA
+CLUSTER BY (tenant_id, IncidentID)
+TBLPROPERTIES (
+  'delta.enableDeletionVectors'           = 'true',
+  'delta.enableChangeDataFeed'            = 'true',
+  'delta.targetFileSize'                  = '134217728',
+  'delta.tuneFileSizesForRewrites'        = 'true',
+  'delta.autoOptimize.optimizeWrite'      = 'true',
+  'delta.autoOptimize.autoCompact'        = 'false',
+  'delta.logRetentionDuration'            = 'interval 7 days',
+  'delta.deletedFileRetentionDuration'    = 'interval 3 days'
+);
+
+CREATE TABLE IF NOT EXISTS medallion.fire_nfris_bronze.fireinvestigation_mediacoverage
+(
+    `tenant_id` INT,
+    `MediaCoverageID` INT,
+    `IncidentID` INT,
+    `MediaCoverage` STRING,
+    `DeletedStatus` BOOLEAN,
+    `CreatedOn` TIMESTAMP,
+    `ModifiedOn` TIMESTAMP,
+    `GlobalIdentifier` STRING,
+    `CreatedBy` STRING,
+    `ModifiedBy` STRING,
+    `_ingest_date` DATE,
+    `_op` STRING,
+    `batch_id` BIGINT
+)
+USING DELTA
+CLUSTER BY (tenant_id, MediaCoverageID)
+TBLPROPERTIES (
+  'delta.enableDeletionVectors'           = 'true',
+  'delta.enableChangeDataFeed'            = 'true',
+  'delta.targetFileSize'                  = '134217728',
+  'delta.tuneFileSizesForRewrites'        = 'true',
+  'delta.autoOptimize.optimizeWrite'      = 'true',
+  'delta.autoOptimize.autoCompact'        = 'false',
+  'delta.logRetentionDuration'            = 'interval 7 days',
+  'delta.deletedFileRetentionDuration'    = 'interval 3 days'
+);
+
+CREATE TABLE IF NOT EXISTS medallion.fire_nfris_bronze.fireinvestigation_motorvehicle
+(
+    `tenant_id` INT,
+    `MotorVehicleID` INT,
+    `IncidentID` INT,
+    `Color` STRING,
+    `Year` INT,
+    `MakeName` STRING,
+    `Model` STRING,
+    `VinNumber` STRING,
+    `OwnerName` STRING,
+    `OwnerCity` STRING,
+    `OwnerState` STRING,
+    `OwnerPostalCode` STRING,
+    `OwnerStreet1` STRING,
+    `OwnerStreet2` STRING,
+    `OwnerPhone` STRING,
+    `OperatorName` STRING,
+    `OperatorCity` STRING,
+    `OperatorState` STRING,
+    `OperatorPostalCode` STRING,
+    `OperatorStreet1` STRING,
+    `OperatorStreet2` STRING,
+    `OperatorPhone` STRING,
+    `ExteriorPriorDamageID` STRING,
+    `ExteriorFireDamageID` STRING,
+    `TiresWheelsID` STRING,
+    `PartsMissingID` STRING,
+    `FuelSystemPriorDamageID` STRING,
+    `FuelSystemFireDamageID` STRING,
+    `FuelTypeID` STRING,
+    `FuelSystemTypeID` STRING,
+    `ConditionOfTankID` STRING,
+    `FillerCapConditionID` STRING,
+    `FuelLineConditionID` STRING,
+    `EnginePriorDamageID` STRING,
+    `EngineFireDamageID` STRING,
+    `FluidLevelOilID` STRING,
+    `FluidLevelTransmissionID` STRING,
+    `FluidLevelRadiatorID` STRING,
+    `FluidLevelOther` STRING,
+    `InteriorPriorDamageID` STRING,
+    `InteriorFireDamageID` STRING,
+    `IgnitionSystemID` STRING,
+    `KeyInIgnitionID` STRING,
+    `PersonalContentsMissingID` STRING,
+    `AccessoriesMissingID` STRING,
+    `OdometerReading` INT,
+    `ServiceStickerInformation` STRING,
+    `AlarmPresentID` STRING,
+    `WindowPositionsID` STRING,
+    `AreaOfOriginID` STRING,
+    `HeatSourceID` STRING,
+    `MaterialIgnitedID` STRING,
+    `IgnitionFactorID` STRING,
+    `Comments` STRING,
+    `DeletedStatus` BOOLEAN,
+    `CreatedOn` TIMESTAMP,
+    `ModifiedOn` TIMESTAMP,
+    `GlobalIdentifier` STRING,
+    `CreatedBy` STRING,
+    `ModifiedBy` STRING,
+    `FormID` STRING,
+    `LicensePlateNumber` STRING,
+    `DoorTrunkLockedID` STRING,
+    `LicensePlateStateGNIS` STRING,
+    `_ingest_date` DATE,
+    `_op` STRING,
+    `batch_id` BIGINT
+)
+USING DELTA
+CLUSTER BY (tenant_id, MotorVehicleID)
+TBLPROPERTIES (
+  'delta.enableDeletionVectors'           = 'true',
+  'delta.enableChangeDataFeed'            = 'true',
+  'delta.targetFileSize'                  = '134217728',
+  'delta.tuneFileSizesForRewrites'        = 'true',
+  'delta.autoOptimize.optimizeWrite'      = 'true',
+  'delta.autoOptimize.autoCompact'        = 'false',
+  'delta.logRetentionDuration'            = 'interval 7 days',
+  'delta.deletedFileRetentionDuration'    = 'interval 3 days'
+);
+
+CREATE TABLE IF NOT EXISTS medallion.fire_nfris_bronze.fireinvestigation_nextofkin
+(
+    `tenant_id` INT,
+    `NextOfKinID` INT,
+    `CasualtyID` INT,
+    `Name` STRING,
+    `City` STRING,
+    `PostalCode` STRING,
+    `Street1` STRING,
+    `Phone` STRING,
+    `Relationship` STRING,
+    `NotifiedOn` DATE,
+    `NotifiedBy` STRING,
+    `DeletedStatus` BOOLEAN,
+    `CreatedOn` TIMESTAMP,
+    `ModifiedOn` TIMESTAMP,
+    `GlobalIdentifier` STRING,
+    `CreatedBy` STRING,
+    `ModifiedBy` STRING,
+    `FormID` STRING,
+    `StateGNIS` STRING,
+    `_ingest_date` DATE,
+    `_op` STRING,
+    `batch_id` BIGINT
+)
+USING DELTA
+CLUSTER BY (tenant_id, NextOfKinID)
+TBLPROPERTIES (
+  'delta.enableDeletionVectors'           = 'true',
+  'delta.enableChangeDataFeed'            = 'true',
+  'delta.targetFileSize'                  = '134217728',
+  'delta.tuneFileSizesForRewrites'        = 'true',
+  'delta.autoOptimize.optimizeWrite'      = 'true',
+  'delta.autoOptimize.autoCompact'        = 'false',
+  'delta.logRetentionDuration'            = 'interval 7 days',
+  'delta.deletedFileRetentionDuration'    = 'interval 3 days'
+);
+
+CREATE TABLE IF NOT EXISTS medallion.fire_nfris_bronze.fireinvestigation_propertyother
+(
+    `tenant_id` INT,
+    `PropertyOtherID` INT,
+    `IncidentID` INT,
+    `PropertyOther` STRING,
+    `DeletedStatus` BOOLEAN,
+    `CreatedOn` TIMESTAMP,
+    `ModifiedOn` TIMESTAMP,
+    `GlobalIdentifier` STRING,
+    `CreatedBy` STRING,
+    `ModifiedBy` STRING,
+    `_ingest_date` DATE,
+    `_op` STRING,
+    `batch_id` BIGINT
+)
+USING DELTA
+CLUSTER BY (tenant_id, PropertyOtherID)
+TBLPROPERTIES (
+  'delta.enableDeletionVectors'           = 'true',
+  'delta.enableChangeDataFeed'            = 'true',
+  'delta.targetFileSize'                  = '134217728',
+  'delta.tuneFileSizesForRewrites'        = 'true',
+  'delta.autoOptimize.optimizeWrite'      = 'true',
+  'delta.autoOptimize.autoCompact'        = 'false',
+  'delta.logRetentionDuration'            = 'interval 7 days',
+  'delta.deletedFileRetentionDuration'    = 'interval 3 days'
+);
+
+CREATE TABLE IF NOT EXISTS medallion.fire_nfris_bronze.fireinvestigation_record
+(
+    `tenant_id` INT,
+    `IncidentID` INT,
+    `GasCompanyName` STRING,
+    `ElectricCompanyName` STRING,
+    `MortgageHolder` STRING,
+    `LienHolder` STRING,
+    `TaxRecords` STRING,
+    `ContractsLeases` STRING,
+    `TitlesRegistrations` STRING,
+    `ZoningCodes` STRING,
+    `Deeds` STRING,
+    `Accounting` STRING,
+    `Inventory` STRING,
+    `BanksCreditUnions` STRING,
+    `BusinessPersonalTax` STRING,
+    `CriminalHistory` STRING,
+    `CivilLitigation` STRING,
+    `PrimaryFireDepartment` STRING,
+    `SecondaryFireDepartment` STRING,
+    `LawEnforcement` STRING,
+    `PrivateInvestigators` STRING,
+    `AgencyComments` STRING,
+    `PropertyComments` STRING,
+    `BusinessComments` STRING,
+    `DeletedStatus` BOOLEAN,
+    `CreatedOn` TIMESTAMP,
+    `ModifiedOn` TIMESTAMP,
+    `CreatedBy` STRING,
+    `ModifiedBy` STRING,
+    `FormID` STRING,
+    `_ingest_date` DATE,
+    `_op` STRING,
+    `batch_id` BIGINT
+)
+USING DELTA
+CLUSTER BY (tenant_id, IncidentID)
+TBLPROPERTIES (
+  'delta.enableDeletionVectors'           = 'true',
+  'delta.enableChangeDataFeed'            = 'true',
+  'delta.targetFileSize'                  = '134217728',
+  'delta.tuneFileSizesForRewrites'        = 'true',
+  'delta.autoOptimize.optimizeWrite'      = 'true',
+  'delta.autoOptimize.autoCompact'        = 'false',
+  'delta.logRetentionDuration'            = 'interval 7 days',
+  'delta.deletedFileRetentionDuration'    = 'interval 3 days'
+);
+
+CREATE TABLE IF NOT EXISTS medallion.fire_nfris_bronze.fireinvestigation_tempdispositionfirecause
+(
+    `tenant_id` INT,
+    `IncidentID` INT,
+    `DispositionID` STRING,
+    `FireCauseID` STRING,
+    `_ingest_date` DATE,
+    `_op` STRING,
+    `batch_id` BIGINT
+)
+USING DELTA
+CLUSTER BY (tenant_id)
+TBLPROPERTIES (
+  'delta.enableDeletionVectors'           = 'true',
+  'delta.enableChangeDataFeed'            = 'true',
+  'delta.targetFileSize'                  = '134217728',
+  'delta.tuneFileSizesForRewrites'        = 'true',
+  'delta.autoOptimize.optimizeWrite'      = 'true',
+  'delta.autoOptimize.autoCompact'        = 'false',
+  'delta.logRetentionDuration'            = 'interval 7 days',
+  'delta.deletedFileRetentionDuration'    = 'interval 3 days'
+);
+
+CREATE TABLE IF NOT EXISTS medallion.fire_nfris_bronze.fireinvestigation_weather
+(
+    `tenant_id` INT,
+    `IncidentID` INT,
+    `Visibility` DECIMAL(7,3),
+    `RelativeHumidity` INT,
+    `WindSpeed` DECIMAL(7,3),
+    `Temperature` INT,
+    `Precipitation` STRING,
+    `WindDirection` STRING,
+    `LightningID` STRING,
+    `InformationObtainedFromID` STRING,
+    `FireHistory` STRING,
+    `Comments` STRING,
+    `DeletedStatus` BOOLEAN,
+    `CreatedOn` TIMESTAMP,
+    `ModifiedOn` TIMESTAMP,
+    `CreatedBy` STRING,
+    `ModifiedBy` STRING,
+    `FormID` STRING,
+    `TemperatureC` DECIMAL(10,7),
+    `_ingest_date` DATE,
+    `_op` STRING,
+    `batch_id` BIGINT
+)
+USING DELTA
+CLUSTER BY (tenant_id, IncidentID)
+TBLPROPERTIES (
+  'delta.enableDeletionVectors'           = 'true',
+  'delta.enableChangeDataFeed'            = 'true',
+  'delta.targetFileSize'                  = '134217728',
+  'delta.tuneFileSizesForRewrites'        = 'true',
+  'delta.autoOptimize.optimizeWrite'      = 'true',
+  'delta.autoOptimize.autoCompact'        = 'false',
+  'delta.logRetentionDuration'            = 'interval 7 days',
+  'delta.deletedFileRetentionDuration'    = 'interval 3 days'
+);
+
+CREATE TABLE IF NOT EXISTS medallion.fire_nfris_bronze.fireinvestigation_witnessinformation
+(
+    `tenant_id` INT,
+    `WitnessInformationID` INT,
+    `IncidentID` INT,
+    `TypeID` STRING,
+    `InterviewDate` DATE,
+    `InterviewedBy` STRING,
+    `InterviewedByOther` STRING,
+    `InterviewedLastName` STRING,
+    `InterviewedMiddleName` STRING,
+    `InterviewedDOB` DATE,
+    `InterviewedCity` STRING,
+    `InterviewedState` STRING,
+    `InterviewedPostalCode` STRING,
+    `InterviewedStreet1` STRING,
+    `InterviewedStreet2` STRING,
+    `InterviewedHomePhone` STRING,
+    `InterviewedCellPhone` STRING,
+    `InterviewedRaceID` STRING,
+    `InterviewedDLNumber` STRING,
+    `InterviewedEmployer` STRING,
+    `InterviewedAKA` STRING,
+    `InterviewedEmployerPhone` STRING,
+    `InterviewedEmployerAddress` STRING,
+    `Comments` STRING,
+    `DeletedStatus` BOOLEAN,
+    `CreatedOn` TIMESTAMP,
+    `ModifiedOn` TIMESTAMP,
+    `GlobalIdentifier` STRING,
+    `CreatedBy` STRING,
+    `ModifiedBy` STRING,
+    `FormID` STRING,
+    `InterviewedFirstName` STRING,
+    `InterviewDateTime` TIMESTAMP,
+    `_ingest_date` DATE,
+    `_op` STRING,
+    `batch_id` BIGINT
+)
+USING DELTA
+CLUSTER BY (tenant_id, WitnessInformationID)
+TBLPROPERTIES (
+  'delta.enableDeletionVectors'           = 'true',
+  'delta.enableChangeDataFeed'            = 'true',
+  'delta.targetFileSize'                  = '134217728',
+  'delta.tuneFileSizesForRewrites'        = 'true',
+  'delta.autoOptimize.optimizeWrite'      = 'true',
+  'delta.autoOptimize.autoCompact'        = 'false',
+  'delta.logRetentionDuration'            = 'interval 7 days',
+  'delta.deletedFileRetentionDuration'    = 'interval 3 days'
+);
+
+================================================================================
+-- SCHEMA: FIREINVESTIGATIONLOCATION (8 tables)
+================================================================================
+
+CREATE TABLE IF NOT EXISTS medallion.fire_nfris_bronze.fireinvestigationlocation_alarmprotectionsecurity
+(
+    `tenant_id` INT,
+    `LocationID` INT,
+    `FireSuppressionEquipmentPresentID` STRING,
+    `SprinklerStandpipesID` STRING,
+    `SmokeDetectorsPresentID` STRING,
+    `SmokeDetectorsPowerID` STRING,
+    `SmokeDetectorsBatteryInPlaceID` STRING,
+    `SmokeDetectorLocations` STRING,
+    `KeysHiddenID` STRING,
+    `SecurityBarsPresentID` STRING,
+    `SecurityCameraPresentID` STRING,
+    `SecurityDoorsID` STRING,
+    `SecurityWindowsID` STRING,
+    `SecurityOtherEntrancesID` STRING,
+    `Comments` STRING,
+    `DeletedStatus` BOOLEAN,
+    `CreatedOn` TIMESTAMP,
+    `ModifiedOn` TIMESTAMP,
+    `CreatedBy` STRING,
+    `ModifiedBy` STRING,
+    `FormID` STRING,
+    `GlobalIdentifier` STRING,
+    `SmokeDetectorsPerformanceID` STRING,
+    `AlarmTypeID` STRING,
+    `SprinklerSystemPerformanceID` STRING,
+    `_ingest_date` DATE,
+    `_op` STRING,
+    `batch_id` BIGINT
+)
+USING DELTA
+CLUSTER BY (tenant_id, LocationID)
+TBLPROPERTIES (
+  'delta.enableDeletionVectors'           = 'true',
+  'delta.enableChangeDataFeed'            = 'true',
+  'delta.targetFileSize'                  = '134217728',
+  'delta.tuneFileSizesForRewrites'        = 'true',
+  'delta.autoOptimize.optimizeWrite'      = 'true',
+  'delta.autoOptimize.autoCompact'        = 'false',
+  'delta.logRetentionDuration'            = 'interval 7 days',
+  'delta.deletedFileRetentionDuration'    = 'interval 3 days'
+);
+
+CREATE TABLE IF NOT EXISTS medallion.fire_nfris_bronze.fireinvestigationlocation_electricservice
+(
+    `tenant_id` INT,
+    `ElectricServiceID` INT,
+    `LocationID` INT,
+    `TypeID` STRING,
+    `Size` INT,
+    `EntryLocation` STRING,
+    `PanelLocation` STRING,
+    `Comments` STRING,
+    `PanelPhotoTakenID` STRING,
+    `DeletedStatus` BOOLEAN,
+    `CreatedOn` TIMESTAMP,
+    `ModifiedOn` TIMESTAMP,
+    `GlobalIdentifier` STRING,
+    `CreatedBy` STRING,
+    `ModifiedBy` STRING,
+    `FormID` STRING,
+    `_ingest_date` DATE,
+    `_op` STRING,
+    `batch_id` BIGINT
+)
+USING DELTA
+CLUSTER BY (tenant_id, ElectricServiceID)
+TBLPROPERTIES (
+  'delta.enableDeletionVectors'           = 'true',
+  'delta.enableChangeDataFeed'            = 'true',
+  'delta.targetFileSize'                  = '134217728',
+  'delta.tuneFileSizesForRewrites'        = 'true',
+  'delta.autoOptimize.optimizeWrite'      = 'true',
+  'delta.autoOptimize.autoCompact'        = 'false',
+  'delta.logRetentionDuration'            = 'interval 7 days',
+  'delta.deletedFileRetentionDuration'    = 'interval 3 days'
+);
+
+CREATE TABLE IF NOT EXISTS medallion.fire_nfris_bronze.fireinvestigationlocation_heatingsystems
+(
+    `tenant_id` INT,
+    `HeatingSystemID` INT,
+    `LocationID` INT,
+    `SystemsTypeID` STRING,
+    `SystemLocationsID` STRING,
+    `Comments` STRING,
+    `DeletedStatus` BOOLEAN,
+    `CreatedOn` TIMESTAMP,
+    `ModifiedOn` TIMESTAMP,
+    `GlobalIdentifier` STRING,
+    `CreatedBy` STRING,
+    `ModifiedBy` STRING,
+    `FormID` STRING,
+    `_ingest_date` DATE,
+    `_op` STRING,
+    `batch_id` BIGINT
+)
+USING DELTA
+CLUSTER BY (tenant_id, HeatingSystemID)
+TBLPROPERTIES (
+  'delta.enableDeletionVectors'           = 'true',
+  'delta.enableChangeDataFeed'            = 'true',
+  'delta.targetFileSize'                  = '134217728',
+  'delta.tuneFileSizesForRewrites'        = 'true',
+  'delta.autoOptimize.optimizeWrite'      = 'true',
+  'delta.autoOptimize.autoCompact'        = 'false',
+  'delta.logRetentionDuration'            = 'interval 7 days',
+  'delta.deletedFileRetentionDuration'    = 'interval 3 days'
+);
+
+CREATE TABLE IF NOT EXISTS medallion.fire_nfris_bronze.fireinvestigationlocation_insurance
+(
+    `tenant_id` INT,
+    `InsuranceID` INT,
+    `LocationID` INT,
+    `ContactName` STRING,
+    `PolicyClaimNumber` STRING,
+    `EffectiveDate` DATE,
+    `ExpirationDate` DATE,
+    `PhoneNumber` STRING,
+    `NamedOfInsured` STRING,
+    `RelationshipToInsured` STRING,
+    `Comments` STRING,
+    `StructureLossDollarsMax` INT,
+    `ContentLossDollarsMax` INT,
+    `TotalStructureLoss` INT,
+    `TotalContentLoss` INT,
+    `DeletedStatus` BOOLEAN,
+    `CreatedOn` TIMESTAMP,
+    `ModifiedOn` TIMESTAMP,
+    `GlobalIdentifier` STRING,
+    `CreatedBy` STRING,
+    `ModifiedBy` STRING,
+    `FormID` STRING,
+    `PolicyNumber` STRING,
+    `InsuranceCompanyName` STRING,
+    `_ingest_date` DATE,
+    `_op` STRING,
+    `batch_id` BIGINT
+)
+USING DELTA
+CLUSTER BY (tenant_id, InsuranceID)
+TBLPROPERTIES (
+  'delta.enableDeletionVectors'           = 'true',
+  'delta.enableChangeDataFeed'            = 'true',
+  'delta.targetFileSize'                  = '134217728',
+  'delta.tuneFileSizesForRewrites'        = 'true',
+  'delta.autoOptimize.optimizeWrite'      = 'true',
+  'delta.autoOptimize.autoCompact'        = 'false',
+  'delta.logRetentionDuration'            = 'interval 7 days',
+  'delta.deletedFileRetentionDuration'    = 'interval 3 days'
+);
+
+CREATE TABLE IF NOT EXISTS medallion.fire_nfris_bronze.fireinvestigationlocation_insurancecontact
+(
+    `tenant_id` INT,
+    `InsuranceContactID` INT,
+    `InsuranceID` INT,
+    `ContactTypeID` STRING,
+    `ContactName` STRING,
+    `City` STRING,
+    `StateID` STRING,
+    `PostalCode` STRING,
+    `Street1` STRING,
+    `Street2` STRING,
+    `PhoneNumber` STRING,
+    `DeletedStatus` BOOLEAN,
+    `CreatedOn` TIMESTAMP,
+    `ModifiedOn` TIMESTAMP,
+    `GlobalIdentifier` STRING,
+    `CreatedBy` STRING,
+    `ModifiedBy` STRING,
+    `FormID` STRING,
+    `_ingest_date` DATE,
+    `_op` STRING,
+    `batch_id` BIGINT
+)
+USING DELTA
+CLUSTER BY (tenant_id, InsuranceContactID)
+TBLPROPERTIES (
+  'delta.enableDeletionVectors'           = 'true',
+  'delta.enableChangeDataFeed'            = 'true',
+  'delta.targetFileSize'                  = '134217728',
+  'delta.tuneFileSizesForRewrites'        = 'true',
+  'delta.autoOptimize.optimizeWrite'      = 'true',
+  'delta.autoOptimize.autoCompact'        = 'false',
+  'delta.logRetentionDuration'            = 'interval 7 days',
+  'delta.deletedFileRetentionDuration'    = 'interval 3 days'
+);
+
+CREATE TABLE IF NOT EXISTS medallion.fire_nfris_bronze.fireinvestigationlocation_location
+(
+    `tenant_id` INT,
+    `LocationID` INT,
+    `InvestigationID` INT,
+    `AgencyID` STRING,
+    `TypeID` STRING,
+    `StreetNumber` STRING,
+    `StreetHighway` STRING,
+    `StreetType` STRING,
+    `AptSuiteRoom` STRING,
+    `PostalCode` STRING,
+    `City` STRING,
+    `County` STRING,
+    `StateID` STRING,
+    `Comments` STRING,
+    `Locked` BOOLEAN,
+    `Status` INT,
+    `DeletedStatus` BOOLEAN,
+    `CreatedOn` TIMESTAMP,
+    `ModifiedOn` TIMESTAMP,
+    `GlobalIdentifier` STRING,
+    `CreatedBy` STRING,
+    `ModifiedBy` STRING,
+    `FormID` STRING,
+    `FormHierarchyCollectionID` INT,
+    `StreetPrefix` STRING,
+    `StreetSuffix` STRING,
+    `BusinessPropertyName` STRING,
+    `ExteriorExamination` STRING,
+    `InteriorExamination` STRING,
+    `PreFireValue` INT,
+    `ContentLossValue` INT,
+    `StructureLossValue` INT,
+    `Validity` INT,
+    `LinkedNFIRSNumber` STRING,
+    `LinkedFireIncidentID` INT,
+    `_ingest_date` DATE,
+    `_op` STRING,
+    `batch_id` BIGINT
+)
+USING DELTA
+CLUSTER BY (tenant_id, LocationID)
+TBLPROPERTIES (
+  'delta.enableDeletionVectors'           = 'true',
+  'delta.enableChangeDataFeed'            = 'true',
+  'delta.targetFileSize'                  = '134217728',
+  'delta.tuneFileSizesForRewrites'        = 'true',
+  'delta.autoOptimize.optimizeWrite'      = 'true',
+  'delta.autoOptimize.autoCompact'        = 'false',
+  'delta.logRetentionDuration'            = 'interval 7 days',
+  'delta.deletedFileRetentionDuration'    = 'interval 3 days'
+);
+
+CREATE TABLE IF NOT EXISTS medallion.fire_nfris_bronze.fireinvestigationlocation_owneroccupantinformation
+(
+    `tenant_id` INT,
+    `OwnerOccupantID` INT,
+    `LocationID` INT,
+    `LastName` STRING,
+    `FirstName` STRING,
+    `MiddleName` STRING,
+    `PermanentCity` STRING,
+    `PermanentState` STRING,
+    `PermanentPostalCode` STRING,
+    `PermanentStreet1` STRING,
+    `PermanentStreet2` STRING,
+    `TemporaryAddress` STRING,
+    `DBA` STRING,
+    `Email` STRING,
+    `Comments` STRING,
+    `OwnerOccupantTypeID` STRING,
+    `Work` STRING,
+    `Cell` STRING,
+    `Home` STRING,
+    `DeletedStatus` BOOLEAN,
+    `CreatedOn` TIMESTAMP,
+    `ModifiedOn` TIMESTAMP,
+    `GlobalIdentifier` STRING,
+    `CreatedBy` STRING,
+    `ModifiedBy` STRING,
+    `FormID` STRING,
+    `DescriptionOfVictim` STRING,
+    `OccupantVictim` STRING,
+    `OccupantDisplaced` STRING,
+    `_ingest_date` DATE,
+    `_op` STRING,
+    `batch_id` BIGINT
+)
+USING DELTA
+CLUSTER BY (tenant_id, OwnerOccupantID)
+TBLPROPERTIES (
+  'delta.enableDeletionVectors'           = 'true',
+  'delta.enableChangeDataFeed'            = 'true',
+  'delta.targetFileSize'                  = '134217728',
+  'delta.tuneFileSizesForRewrites'        = 'true',
+  'delta.autoOptimize.optimizeWrite'      = 'true',
+  'delta.autoOptimize.autoCompact'        = 'false',
+  'delta.logRetentionDuration'            = 'interval 7 days',
+  'delta.deletedFileRetentionDuration'    = 'interval 3 days'
+);
+
+CREATE TABLE IF NOT EXISTS medallion.fire_nfris_bronze.fireinvestigationlocation_utility
+(
+    `tenant_id` INT,
+    `LocationID` INT,
+    `ElectricalStatusID` STRING,
+    `ElectricalEntranceID` STRING,
+    `FuelStatusID` STRING,
+    `FuelTypeID` STRING,
+    `FuelCompany` STRING,
+    `WaterStatusID` STRING,
+    `WaterCompany` STRING,
+    `ElectricalCompany` STRING,
+    `TelephoneStatusID` STRING,
+    `UtilityComments` STRING,
+    `DeletedStatus` BOOLEAN,
+    `CreatedOn` TIMESTAMP,
+    `ModifiedOn` TIMESTAMP,
+    `CreatedBy` STRING,
+    `ModifiedBy` STRING,
+    `FormID` STRING,
+    `_ingest_date` DATE,
+    `_op` STRING,
+    `batch_id` BIGINT
+)
+USING DELTA
+CLUSTER BY (tenant_id, LocationID)
+TBLPROPERTIES (
+  'delta.enableDeletionVectors'           = 'true',
+  'delta.enableChangeDataFeed'            = 'true',
+  'delta.targetFileSize'                  = '134217728',
+  'delta.tuneFileSizesForRewrites'        = 'true',
+  'delta.autoOptimize.optimizeWrite'      = 'true',
+  'delta.autoOptimize.autoCompact'        = 'false',
+  'delta.logRetentionDuration'            = 'interval 7 days',
+  'delta.deletedFileRetentionDuration'    = 'interval 3 days'
+);
+
+CREATE TABLE IF NOT EXISTS medallion.fire_nfris_bronze.fireinvestigation_additionalinvestigator
+(
+    `tenant_id` INT,
+    `AdditionalInvestigatorID` INT,
+    `IncidentID` INT,
+    `PerformerID` STRING,
+    `CreatedOn` TIMESTAMP,
+    `ModifiedOn` TIMESTAMP,
+    `CreatedBy` STRING,
+    `ModifiedBy` STRING,
+    `DeletedStatus` BOOLEAN,
+    `ActiveStatus` BOOLEAN,
+    `GlobalIdentifier` STRING,
+    `_ingest_date` DATE,
+    `_op` STRING,
+    `batch_id` BIGINT
+)
+USING DELTA
+CLUSTER BY (`tenant_id`, `AdditionalInvestigatorID`)
+TBLPROPERTIES (
+    'delta.enableDeletionVectors'           = 'true',
+    'delta.enableChangeDataFeed'            = 'true',
+    'delta.targetFileSize'                  = '134217728',
+    'delta.tuneFileSizesForRewrites'        = 'true',
+    'delta.autoOptimize.optimizeWrite'      = 'true',
+    'delta.autoOptimize.autoCompact'        = 'false',
+    'delta.logRetentionDuration'            = 'interval 7 days',
+    'delta.deletedFileRetentionDuration'    = 'interval 3 days'
+);
+
+CREATE TABLE IF NOT EXISTS medallion.fire_nfris_bronze.fireinvestigation_additionalnarratives
+(
+    `tenant_id` INT,
+    `NarrativeID` INT,
+    `IncidentID` INT,
+    `Narrative` STRING,
+    `CreatedOn` TIMESTAMP,
+    `CreatedBy` STRING,
+    `ModifiedOn` TIMESTAMP,
+    `ModifiedBy` STRING,
+    `DeletedStatus` BOOLEAN,
+    `GlobalIdentifier` STRING,
+    `FormID` STRING,
+    `_ingest_date` DATE,
+    `_op` STRING,
+    `batch_id` BIGINT
+)
+USING DELTA
+CLUSTER BY (`tenant_id`, `NarrativeID`)
+TBLPROPERTIES (
+    'delta.enableDeletionVectors'           = 'true',
+    'delta.enableChangeDataFeed'            = 'true',
+    'delta.targetFileSize'                  = '134217728',
+    'delta.tuneFileSizesForRewrites'        = 'true',
+    'delta.autoOptimize.optimizeWrite'      = 'true',
+    'delta.autoOptimize.autoCompact'        = 'false',
+    'delta.logRetentionDuration'            = 'interval 7 days',
+    'delta.deletedFileRetentionDuration'    = 'interval 3 days'
+);
+
+CREATE TABLE IF NOT EXISTS medallion.fire_nfris_bronze.fireinvestigation_casualty
+(
+    `tenant_id` INT,
+    `CasualtyID` INT,
+    `IncidentID` INT,
+    `CasualtyStatusID` STRING,
+    `CasualtyTypeID` STRING,
+    `CasualtySeverityOfInjuryID` STRING,
+    `CasualtyLastName` STRING,
+    `CasualtyFirstName` STRING,
+    `CasualtyMiddleName` STRING,
+    `CasualtyCaseCity` STRING,
+    `CasualtyCaseState` STRING,
+    `CasualtyCasePostalCode` STRING,
+    `CasualtyCaseStreet1` STRING,
+    `CasualtyCaseStreet2` STRING,
+    `CasualtyHomeCity` STRING,
+    `CasualtyHomeState` STRING,
+    `CasualtyHomePostalCode` STRING,
+    `CasualtyHomeStreet1` STRING,
+    `CasualtyHomeStreet2` STRING,
+    `CasualtyDateOfBirth` DATE,
+    `CasualtyRace` STRING,
+    `ReportAttachedToCaseID` STRING,
+    `CasualtyOtherIdentifiers` STRING,
+    `CasualtySmokerID` STRING,
+    `CasualtyClothingJewelryDescription` STRING,
+    `CasualtyOccupation` STRING,
+    `CasualtyPlaceOfEmployment` STRING,
+    `CasualtyDoctor` STRING,
+    `CasualtyDentist` STRING,
+    `CasualtyMaritalStatusID` STRING,
+    `CasualtyLocationFound` STRING,
+    `CasualtyBodyPositionInitial` STRING,
+    `CasualtyBodyRemovedBy` STRING,
+    `CasualtyTransportedTo` STRING,
+    `CasualtyPhotographedInPlaceID` STRING,
+    `CasualtySignificatebloodPresentID` STRING,
+    `CasualtyComments` STRING,
+    `Agency` STRING,
+    `DateOfExamination` DATE,
+    `Location` STRING,
+    `AutopsyRequestedID` STRING,
+    `AutopsyCompletedID` STRING,
+    `DeletedStatus` BOOLEAN,
+    `CreatedOn` TIMESTAMP,
+    `ModifiedOn` TIMESTAMP,
+    `GlobalIdentifier` STRING,
+    `CreatedBy` STRING,
+    `ModifiedBy` STRING,
+    `FormID` STRING,
+    `FireDeathID` STRING,
+    `TestedPositiveForAlcoholID` STRING,
+    `TestedPositiveForCarbonMonoxideID` STRING,
+    `TestedPositiveForDrugsID` STRING,
+    `GenderID` STRING,
+    `_ingest_date` DATE,
+    `_op` STRING,
+    `batch_id` BIGINT
+)
+USING DELTA
+CLUSTER BY (`tenant_id`, `CasualtyID`)
+TBLPROPERTIES (
+    'delta.enableDeletionVectors'           = 'true',
+    'delta.enableChangeDataFeed'            = 'true',
+    'delta.targetFileSize'                  = '134217728',
+    'delta.tuneFileSizesForRewrites'        = 'true',
+    'delta.autoOptimize.optimizeWrite'      = 'true',
+    'delta.autoOptimize.autoCompact'        = 'false',
+    'delta.logRetentionDuration'            = 'interval 7 days',
+    'delta.deletedFileRetentionDuration'    = 'interval 3 days'
+);
+
+CREATE TABLE IF NOT EXISTS medallion.fire_nfris_bronze.fireinvestigation_courtstatus
+(
+    `tenant_id` INT,
+    `IncidentID` INT,
+    `CaseFileNumber` STRING,
+    `CountyAttorneyName` STRING,
+    `CountyAttorneyPhone` STRING,
+    `ArrestedID` STRING,
+    `ConvictionID` STRING,
+    `FinalCharge` STRING,
+    `Sentence` STRING,
+    `CourtType` STRING,
+    `Venue` STRING,
+    `Deposition` STRING,
+    `Comments` STRING,
+    `DeletedStatus` BOOLEAN,
+    `CreatedOn` TIMESTAMP,
+    `ModifiedOn` TIMESTAMP,
+    `CreatedBy` STRING,
+    `ModifiedBy` STRING,
+    `FormID` STRING,
+    `_ingest_date` DATE,
+    `_op` STRING,
+    `batch_id` BIGINT
+)
+USING DELTA
+CLUSTER BY (`tenant_id`, `IncidentID`)
+TBLPROPERTIES (
+    'delta.enableDeletionVectors'           = 'true',
+    'delta.enableChangeDataFeed'            = 'true',
+    'delta.targetFileSize'                  = '134217728',
+    'delta.tuneFileSizesForRewrites'        = 'true',
+    'delta.autoOptimize.optimizeWrite'      = 'true',
+    'delta.autoOptimize.autoCompact'        = 'false',
+    'delta.logRetentionDuration'            = 'interval 7 days',
+    'delta.deletedFileRetentionDuration'    = 'interval 3 days'
+);
